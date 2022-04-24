@@ -1,0 +1,140 @@
+* {
+    font-family: "Reggae One", cursive;
+    color: #272727;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #2f363e;
+}
+.container {
+    display: flex;
+    border-radius: 1vh;
+    background-color: rgb(230, 230, 230);
+}
+
+#watch {
+    /* margin-bottom: 40px; */
+    display: flex;
+    /* padding: 10px 20px; */
+    font-size: 2em;
+    font-weight: 900;
+}
+
+#watch > div {
+    position: relative;
+    margin: auto;
+    width: 60px;
+    text-align: center;
+    font-weight: 800;
+}
+
+#watch div:nth-child(1)::after {
+    content: ":";
+    position: absolute;
+    right: -10%;
+    color: #272727;
+    animation: blinking 1s steps(1) infinite;
+}
+@keyframes blinking {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+.weather {
+    display: flex;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    margin: auto;
+    top: -100%;
+    /* animation: slideAnime 12s ease infinite; */
+    /* ↑ 以下のコードは都市の数で動的に変化するのでjsで管理 */
+}
+
+#weather-list {
+    position: relative;
+    overflow: hidden;
+    width: 210px;
+    height: 100px;
+    margin: auto;
+}
+
+.text-data {
+    margin-left: 7%;
+    width: 100%;
+}
+
+.local-label {
+    text-align: right;
+    font-size: 1.7em;
+    margin-top: 15%;
+    margin-right: 1%;
+    letter-spacing: 0.1em;
+}
+
+.weather-values {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.weather-values div {
+    font-size: 1.1em;
+    margin-left: 7%;
+}
+
+.weather-values div:nth-child(1)::after {
+    content: "/";
+    position: absolute;
+    color: #272727;
+}
+
+.min-temp {
+    color: rgb(64, 187, 243);
+}
+
+.max-temp {
+    color: rgb(248, 62, 118);
+}
+
+.weather-icon {
+    display: block;
+    transform: scale(110%);
+    transform-origin: 50% 50%;
+}
+
+/* 以下のコードは都市の数で動的に変化するのでjsで管理 */
+/* .weather:nth-of-type(1) {
+    animation-delay: 0s;
+}
+.weather:nth-of-type(2) {
+    animation-delay: 4s;
+}
+.weather:nth-of-type(3) {
+    animation-delay: 8s;
+} */
+
+/* @keyframes slideAnime {
+    0% {
+        top: -100%;
+    }
+    4% {
+        top: 0;
+    }
+    29% {
+        top: 0;
+    }
+    33% {
+        top: 100%;
+    }
+    100% {
+        top: 100%;
+    }
+} */
