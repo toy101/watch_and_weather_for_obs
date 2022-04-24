@@ -53,7 +53,7 @@ body {
     width: inherit;
     height: inherit;
     margin: auto;
-    /* top: -100%; */
+    top: -100%;
     /* animation: slideAnime 12s ease infinite; */
     /* ↑ 以下のコードは都市の数で動的に変化するのでjsで管理 */
 }
