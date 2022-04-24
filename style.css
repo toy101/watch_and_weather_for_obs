@@ -6,7 +6,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 200px;
     background-color: #2f363e;
 }
 .container {
@@ -53,7 +53,7 @@ body {
     width: inherit;
     height: inherit;
     margin: auto;
-    top: -100%;
+    /* top: -100%; */
     /* animation: slideAnime 12s ease infinite; */
     /* ↑ 以下のコードは都市の数で動的に変化するのでjsで管理 */
 }
@@ -67,7 +67,7 @@ body {
 }
 
 .text-data {
-    margin-left: 7%;
+    margin-left: 7px;
     width: 100%;
 }
 
@@ -106,6 +106,8 @@ body {
 
 .weather-icon {
     display: block;
+    min-height: 110px;
+    min-height: 110px;
     transform: scale(110%);
     transform-origin: 50% 50%;
 }
