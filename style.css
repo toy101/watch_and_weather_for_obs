@@ -1,26 +1,32 @@
 * {
-    font-family: "Reggae One", cursive;
-    color: #272727;
+    font-family: "Noto Sans JP", sans-serif;
+    color: #2c2b2b;
 }
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 200px;
-    background-color: #2f363e;
+    background-color: #ffffff;
 }
 .container {
     display: flex;
     border-radius: 1vh;
-    background-color: rgb(230, 230, 230);
+    box-sizing: border-box;
+    outline: none;
+    background: linear-gradient(25deg, rgb(254, 246, 208), #fddbf8);
+    box-shadow: 4px 4px 10px rgba(51, 51, 51, 0.5),
+        inset 4px 4px 10px rgba(51, 51, 51, 0.5),
+        inset -4px -4px 10px rgba(255, 255, 255, 1);
 }
 
 #watch {
-    /* margin-bottom: 40px; */
+    padding-left: 5%;
+    margin-right: -7%;
     display: flex;
-    /* padding: 10px 20px; */
     font-size: 2em;
     font-weight: 900;
+    color: #343434;
 }
 
 #watch > div {
@@ -28,14 +34,15 @@ body {
     margin: auto;
     width: 60px;
     text-align: center;
-    font-weight: 800;
+    font-size: 1.1em;
+    font-weight: 700;
 }
 
 #watch div:nth-child(1)::after {
     content: ":";
     position: absolute;
-    right: -10%;
-    color: #272727;
+    right: -9%;
+    color: #343434;
     animation: blinking 1s steps(1) infinite;
 }
 @keyframes blinking {
@@ -61,21 +68,20 @@ body {
 #weather-list {
     position: relative;
     overflow: hidden;
-    width: 210px;
-    height: 100px;
+    width: 200px;
+    height: 70px;
     margin: auto;
 }
 
 .text-data {
-    margin-left: 7px;
     width: 100%;
+    font-weight: 600;
 }
 
 .local-label {
     text-align: right;
-    font-size: 1.7em;
-    margin-top: 15%;
-    margin-right: 1%;
+    font-size: 1.5em;
+    margin-top: 4%;
     letter-spacing: 0.1em;
 }
 
@@ -83,17 +89,19 @@ body {
     display: flex;
     justify-content: flex-end;
     width: 100%;
+    color: #343434;
 }
 
 .weather-values div {
     font-size: 1.1em;
-    margin-left: 7%;
+    margin-left: 6%;
+    font-weight: 500;
 }
 
 .weather-values div:nth-child(1)::after {
     content: "/";
     position: absolute;
-    color: #272727;
+    color: #343434;
 }
 
 .min-temp {
@@ -106,8 +114,8 @@ body {
 
 .weather-icon {
     display: block;
-    min-height: 110px;
-    min-height: 110px;
+    min-height: 70px;
+    min-width: 70px;
     transform: scale(110%);
     transform-origin: 50% 50%;
 }
