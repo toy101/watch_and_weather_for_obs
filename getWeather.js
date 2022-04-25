@@ -1,13 +1,12 @@
 /* 
 
     真下にあるapiKeyの左辺を
-    取得したAPIキーに置き換えてください（ダブルクォーテーションの間に挿れる）
+    取得したAPIキーに置き換えてください（ダブルクォーテーションの間に）
     API取得方法の記事（https://auto-worker.com/blog/?p=1612#toc_id_4）
 
 */
 
-var apiKey = "34d16845d0c6dd71be5ac1da53188c45";
-// var apiKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+var apiKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
 // 天気予報データの処理
 
