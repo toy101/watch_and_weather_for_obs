@@ -1,13 +1,3 @@
-/* 
-
-    真下にあるapiKeyの左辺を
-    取得したAPIキーに置き換えてください（ダブルクォーテーションの間に）
-    API取得方法の記事（https://auto-worker.com/blog/?p=1612#toc_id_4）
-
-*/
-
-var apiKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-
 // 天気予報データの処理
 
 // 都市のデータ
@@ -84,24 +74,20 @@ let css = document
 
 let weatherList = document.getElementById("weather-list");
 localDatas.forEach((city, idx) => {
-    // 天気APIリクエスト
-    const query_params = new URLSearchParams({
-        appid: apiKey,
-        lat: city.lat,
-        lon: city.lon,
-        lang: "ja",
-        units: "metric",
-        exclude: "current,minutely,alerts",
-        // , "minutely", "daily", "alerts"
-    });
-
-    fetch("https://api.openweathermap.org/data/2.5/onecall?" + query_params)
+    fetch(
+        // 天気APIリクエスト
+        "https://api.open-meteo.com/v1/forecast?latitude=" +
+            city.lat +
+            "&longitude=" +
+            city.lon +
+            "&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=Asia%2FTokyo"
+    )
         .then((response) => {
             return response.json();
         })
         .then((data) => {
-            responsedWeather = data.daily[0];
-            console.log(responsedWeather);
+            // console.log(data);
+            responsedWeather = data.daily;
             weatherList.innerHTML += `<div class="weather" id=${city.cityName}>
                                         <div class="text-data">
                                             <div class="local-label">${
@@ -111,13 +97,13 @@ localDatas.forEach((city, idx) => {
                                                     <div class="min-temp">${
                                                         Math.round(
                                                             responsedWeather
-                                                                .temp.min
+                                                                .temperature_2m_min[1]
                                                         ) + "℃"
                                                     }</div>
                                                     <div class="max-temp">${
                                                         Math.round(
                                                             responsedWeather
-                                                                .temp.max
+                                                                .temperature_2m_max[1]
                                                         ) + "℃"
                                                     }</div>
                                                 </div>
@@ -126,9 +112,10 @@ localDatas.forEach((city, idx) => {
                                             class="weather-icon"
                                             id=${"img-" + city.cityName}
                                             src=${
-                                                "https://openweathermap.org/img/w/" +
-                                                responsedWeather.weather[0]
-                                                    .icon +
+                                                "./icons/0" +
+                                                (responsedWeather
+                                                    .weathercode[1] %
+                                                    10) +
                                                 ".png"
                                             }
                                             alt="Weather icon"
