@@ -20,15 +20,21 @@
     <body>
         <!-- Hello World -->
         <div class="container">
-            <div id="watch">
-                <div id="hours">00</div>
-                <div id="minutes">00</div>
+            <div id="left-contents">
+                <div id="watch">
+                    <div id="hours">00</div>
+                    <div id="minutes">00</div>
+                </div>
+                <div id="sub-info">
+                    <div id="days">12月10日の天気</div>
+                    <div id="live">LIVE</div>
+                </div>
             </div>
             <div id="weather-list">
                 <!-- 天気 -->
                 <!-- <div class="weather" id="Tokyo">
                     <div class="text-data">
-                        <div class="local-label">東京</div>
+                        <div class="local-label">名古屋</div>
                         <div class="weather-values">
                             <div class="min-temp">18℃</div>
                             <div class="max-temp">24℃</div>
@@ -37,10 +43,10 @@
                     <img
                         class="weather-icon"
                         id="img-Tokyo"
-                        src="https://openweathermap.org/img/w/10d.png"
+                        src="./icons/1.png"
                         alt="Weather icon"
-                    />
-                </div> -->
+                    /> -->
+                </div>
             </div>
         </div>
         <script type="text/javascript" src="./GetWeather.js"></script>
@@ -50,10 +56,6 @@
             let minutes = document.getElementById("minutes");
 
             setInterval(() => {
-                let day = new Date();
-                let hh = day.getHours() * 30;
-                let mm = day.getMinutes() * 6;
-
                 let h = new Date().getHours();
                 let m = new Date().getMinutes();
 

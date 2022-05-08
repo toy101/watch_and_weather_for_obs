@@ -21,27 +21,29 @@ body {
 }
 
 #watch {
-    padding-left: 5%;
-    margin-right: -7%;
+    padding: 0 5%;
+    margin-bottom: -5%;
     display: flex;
-    font-size: 2em;
-    font-weight: 900;
+    font-weight: 800;
     color: #343434;
 }
 
 #watch > div {
     position: relative;
-    margin: auto;
-    width: 60px;
+    margin-top: -2%;
+    width: 70px;
     text-align: center;
-    font-size: 1.1em;
+    font-size: 2.7em;
     font-weight: 700;
+    letter-spacing: 0.03em;
 }
 
 #watch div:nth-child(1)::after {
     content: ":";
+    font-weight: 400;
     position: absolute;
-    right: -9%;
+    top: -2%;
+    right: -10%;
     color: #343434;
     animation: blinking 1s steps(1) infinite;
 }
@@ -54,6 +56,70 @@ body {
     }
 }
 
+#days {
+    position: relative;
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+#live {
+    position: relative;
+    padding-left: 0.5em;
+    margin-top: -2%;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 800;
+    letter-spacing: 0.4em;
+}
+
+#sub-info {
+    position: relative;
+    overflow: hidden;
+    width: 140px;
+    height: 20px;
+    margin: auto;
+}
+
+#sub-info div {
+    display: block;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    opacity: 0;
+    animation: fade 10s ease infinite;
+}
+
+#sub-info div:nth-of-type(1) {
+    animation-delay: 0s;
+}
+#sub-info div:nth-of-type(2) {
+    animation-delay: 5s;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+        transform: rotateX(90deg);
+    }
+    6% {
+        opacity: 1;
+        transform: rotateX(0deg);
+    }
+    44% {
+        opacity: 1;
+        transform: rotateX(0deg);
+    }
+    50% {
+        opacity: 0;
+        transform: rotateX(90deg);
+    }
+    100% {
+        opacity: 0;
+        transform: rotateX(90deg);
+    }
+}
+
 .weather {
     display: flex;
     position: absolute;
@@ -61,15 +127,16 @@ body {
     height: inherit;
     margin: auto;
     top: -100%;
-    /* animation: slideAnime 12s ease infinite; */
+
+    /* animation: fade 12s ease infinite; */
     /* ↑ 以下のコードは都市の数で動的に変化するのでjsで管理 */
 }
 
 #weather-list {
     position: relative;
     overflow: hidden;
-    width: 200px;
-    height: 70px;
+    width: 170px;
+    height: 80px;
     margin: auto;
 }
 
@@ -81,7 +148,7 @@ body {
 .local-label {
     text-align: right;
     font-size: 1.5em;
-    margin-top: 4%;
+    margin-top: 10%;
     letter-spacing: 0.1em;
 }
 
@@ -94,13 +161,12 @@ body {
 
 .weather-values div {
     font-size: 1.1em;
-    margin-left: 6%;
+    margin-left: 3%;
     font-weight: 500;
 }
 
 .weather-values div:nth-child(1)::after {
     content: "/";
-    position: absolute;
     color: #343434;
 }
 
@@ -114,8 +180,8 @@ body {
 
 .weather-icon {
     display: block;
-    min-height: 70px;
-    min-width: 70px;
+    min-height: 80px;
+    min-width: 80px;
     transform: scale(90%);
     transform-origin: 50% 50%;
 }
@@ -131,7 +197,7 @@ body {
     animation-delay: 8s;
 } */
 
-/* @keyframes slideAnime {
+/* @keyframes fade {
     0% {
         top: -100%;
     }

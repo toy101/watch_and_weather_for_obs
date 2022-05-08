@@ -84,6 +84,11 @@ let css = document
     .getElementById("css")
     .insertAdjacentHTML("afterbegin", slideAnime);
 
+// 「明日」のデータを使うか「今日のデータを使うか決める」
+// 18時~24時は次の日
+let h = new Date().getHours();
+var dailyIndex = h < 18 ? 0 : 1;
+
 let weatherList = document.getElementById("weather-list");
 localDatas.forEach((city, idx) => {
     fetch(
@@ -100,7 +105,16 @@ localDatas.forEach((city, idx) => {
         .then((data) => {
             // console.log(data);
             var responsedWeather = data.daily;
-            var weatherCode = responsedWeather.weathercode[1];
+            // ループの最初に日付データを得る
+            if (idx == 0) {
+                let days = document.getElementById("days");
+                let time = responsedWeather.time[dailyIndex];
+                let splitTimes = time.split("-");
+                days.innerHTML =
+                    splitTimes[1] + "月" + splitTimes[2] + "日の天気";
+            }
+
+            var weatherCode = responsedWeather.weathercode[dailyIndex];
             switch (Math.floor(weatherCode / 10)) {
                 case 4:
                     weatherCode = "4x";
@@ -129,13 +143,17 @@ localDatas.forEach((city, idx) => {
                                                     <div class="min-temp">${
                                                         Math.round(
                                                             responsedWeather
-                                                                .temperature_2m_min[1]
+                                                                .temperature_2m_min[
+                                                                dailyIndex
+                                                            ]
                                                         ) + "℃"
                                                     }</div>
                                                     <div class="max-temp">${
                                                         Math.round(
                                                             responsedWeather
-                                                                .temperature_2m_max[1]
+                                                                .temperature_2m_max[
+                                                                dailyIndex
+                                                            ]
                                                         ) + "℃"
                                                     }</div>
                                                 </div>
