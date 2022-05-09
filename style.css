@@ -14,7 +14,7 @@ body {
     border-radius: 1vh;
     box-sizing: border-box;
     outline: none;
-    background: linear-gradient(25deg, #ffbdf4, rgb(173, 155, 252));
+    background: linear-gradient(25deg, #b3fffe, rgb(155, 174, 252));
     box-shadow: 4px 4px 10px rgba(51, 51, 51, 0.5),
         inset 4px 4px 10px rgba(51, 51, 51, 0.5),
         inset -4px -4px 10px rgba(255, 255, 255, 1);
@@ -65,7 +65,7 @@ body {
 
 #live {
     position: relative;
-    padding-left: 0.5em;
+    padding-left: 0.2em;
     margin-top: -2%;
     text-align: center;
     font-size: 1.1em;
